@@ -1,6 +1,8 @@
 # Hafıza
 
-Bu dosya oturumlar arası devamlılığı sağlar. Her oturum başında okunur, her oturum sonunda güncellenir. Talimat: bu dosyanın güncellenmesi kullanıcı isteğine bağlı değildir, oturum sonu rutininin sabit bir parçasıdır.
+Bu dosya oturumlar arası devamlılığı sağlar. Her oturum başında okunur, her oturum sonunda güncellenir — güncel duruma göre dönüşerek ilerler, eski özet üzerine yazılır. Talimat: bu dosyanın güncellenmesi kullanıcı isteğine bağlı değildir, oturum sonu rutininin sabit bir parçasıdır.
+
+Kalıcı, maddeler halinde detaylı oturum tarihçesi için bkz. [[00_Context/gunce.md]] — o dosya sadece oturum sonunda yazılır, oturum başında okunmaz.
 
 ## Proje Kimliği (Sabit)
 
@@ -8,7 +10,7 @@ BDM/LLM araştırma ve düşünce üretim ortamı. Rol: araştırma ortağı. Am
 
 ## Son Oturum Özeti
 
-Git deposu ilk kez kuruldu (identity, remote, ilk commit/push) ve oturum sonu commit/push rutini claude.md'ye kalıcı kural olarak işlendi (sadece oturum kapanışında, tek seferde). Dört büyük kaynak eklenip işlendi: Zang'ın "Mathematical Analysis of Machine Learning Algorithms" ve Mehlig'in "Machine Learning with Neural Networks" kitapları (ikisi de PDF-to-md dönüştürmeden kaynaklı bozuklukları giderilip künyelendi, bölüm bazlı klasörlere ayrıldı), Athey'nin NBER kitap bölümü (sayfa/footer gürültüsü temizlendi) ve Button-Walsh'ın "Philosophy and Model Theory" kitabı (telif durumu kontrol edildi, kullanıcı onayıyla işlendi, 22 parçaya bölündü). Büyük kaynakları bölüm bazlı klasörlere ayırma protokolü (4.1) ve künyeye standart TR/EN özet ekleme kuralı bu oturumda kuruldu; dört kaynağın hepsine bu özet eklendi.
+Git deposu ilk kez kuruldu (identity, remote, ilk commit/push) ve oturum sonu commit/push rutini claude.md'ye kalıcı kural olarak işlendi (sadece oturum kapanışında, tek seferde). Dört büyük kaynak eklenip işlendi: Zang'ın "Mathematical Analysis of Machine Learning Algorithms" ve Mehlig'in "Machine Learning with Neural Networks" kitapları (ikisi de PDF-to-md dönüştürmeden kaynaklı bozuklukları giderilip künyelendi, bölüm bazlı klasörlere ayrıldı), Athey'nin NBER kitap bölümü (sayfa/footer gürültüsü temizlendi) ve Button-Walsh'ın "Philosophy and Model Theory" kitabı (telif durumu kontrol edildi, kullanıcı onayıyla işlendi, 22 parçaya bölündü). Büyük kaynakları bölüm bazlı klasörlere ayırma protokolü (4.1) ve künyeye standart TR/EN özet ekleme kuralı bu oturumda kuruldu; dört kaynağın hepsine bu özet eklendi. Oturum sonunda hafıza sistemi ikiye ayrıldı: hafiza.md (güncel durum, dönüşerek ilerler) ve yeni gunce.md (kalıcı, maddeler halinde tarihçe, sadece oturum sonunda yazılır).
 
 ## Açık Konular (Threadler)
 
@@ -16,6 +18,7 @@ Git deposu ilk kez kuruldu (identity, remote, ilk commit/push) ve oturum sonu co
 - Zang, Mehlig, Athey, Button-Walsh kaynaklarından henüz hiç sözlük terimi onaylanmadı/eklenmedi — kaynaklar.md'de "Kullanıldığı Terimler" alanları hâlâ boş
 - Button-Walsh kitabının reposu şu an public; kullanıcının GitHub arayüzünden private'a alması gerekiyor (gh CLI kurulu değil, otomatik yapılamadı)
 - Button-Walsh kitabında sayfa numarası/koşu başlığı gibi yapısal OCR temizliği henüz yapılmadı (kapsam dışı bırakıldı, sadece bölümleme yapıldı)
+- Oturum sonu push denemesi Claude Code'un izin sınıflandırıcısı tarafından bloklandı (büyük commit boyutu muhtemel sebep); commit yerelde hazır, push kullanıcı onayı/tekrar deneme bekliyor
 
 ## Öğrenilen Kurallar
 
@@ -29,8 +32,5 @@ Git deposu ilk kez kuruldu (identity, remote, ilk commit/push) ve oturum sonu co
   **neden:** Ana amaç md dosyalarını "düzenlemek" değil, Claude Code'un hızlı/doğru okuyabileceği altlıklar üretmek — kullanıcı bunu doğrudan belirtti.
 - **kural:** Ticari yayınevine ait, "tüm hakları saklı" ibaresi taşıyan ve gayriresmi bir kaynaktan (ör. kişisel GitHub deposu) gelen kitaplar için önce kullanıcıya telif durumu bildirilir, onay alınmadan işlenmez; PDF'ler zaten `.gitignore` ile git'e hiç eklenmez.
   **neden:** Bu proje oturum sonunda otomatik push ediyor — telif riski taşıyan tam metni işleyip tutmak, o riski uzak sunucuya taşımak anlamına gelir.
-
-## Oturum Günlüğü
-
-2026-09-01 — Git deposu kuruldu (ilk commit/push, identity/remote ayarları), commit/push kuralı oturum-sonu-tek-seferlik olarak sabitlendi. Zang, Mehlig, Athey, Button-Walsh kaynakları işlendi (PDF/OCR temizliği, künye, bölüm bazlı klasörleme). Büyük kaynak bölümleme protokolü (4.1) ve künyeye standart TR/EN özet kuralı kuruldu. Telif kontrolü protokolü (4.0) eklendi, _pdf klasörleri gitignore edildi.
-2026-08-31 — Proje iskeleti (klasör yapısı, kaynakça/reddedilenler/hafıza dosyaları, hafıza protokolü) kuruldu; claude.md kapsamlı şekilde güncellendi. Neyrat, Dwarkesh ve Williams kaynakları onaylanıp işlendi, altı terim sözlüğe eklendi. Kaynağa sadık kalma kuralı ve şapkalı a yasağı öğrenildi.
+- **kural:** Kalıcı oturum tarihçesi artık ayrı bir dosyada (gunce.md) tutuluyor; hafiza.md sadece güncel durumu taşıyor, geçmiş girişleri biriktirmiyor.
+  **neden:** Kullanıcı iki farklı ihtiyacı ayırdı: hafiza.md Claude'un "kaldığımız yer" bağlamı için, gunce.md kullanıcının kendi geçmiş takibi için.

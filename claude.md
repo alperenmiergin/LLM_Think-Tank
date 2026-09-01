@@ -8,7 +8,7 @@ Rol: Araştırma ortağı. Fikir üretimini kolaylaştır, iddiaları kaynakla d
 
 | Klasör | Rol |
 |---|---|
-| 00_Context | Onaylanmış kaynaklar ve arka plan notları: kaynaklar.md, reddedilenler.md, hafiza.md, kaynak dosyaları (`0_` önekiyle) |
+| 00_Context | Onaylanmış kaynaklar ve arka plan notları: kaynaklar.md, reddedilenler.md, hafiza.md, gunce.md, kaynak dosyaları (`0_` önekiyle) |
 | 00_Context/_pdf (ve her alt klasördeki `_pdf`) | Karşılık gelen `0_` md dosyasının orijinal PDF kaynağı. Salt referans: içindeki dosyalarda hiçbir değişiklik yapılmaz, sadece md dosyasındaki eksik/hatalı referansları tespit etmek için başvuru kaynağı olarak okunur. `.gitignore` ile git'e hiç eklenmez (ham PDF asla push edilmez) |
 | 01_Work-Table | Onay bekleyen veya henüz tamamlanmamış analiz taslakları. Bir analiz üretilirken önce burada tutulur; kullanıcı onaylayıp kesinleştirince 02-Outputs'a taşınır. Terim önerileri ve kaynak adayları burada değil, ilgili protokolün (2. ve 3. madde) kendi akışında tutulur |
 | 02-Outputs | Nihai çıktılar: sozluk.md ve tamamlanmış/onaylanmış analizler |
@@ -96,18 +96,26 @@ Tek md dosyası ~200KB'ı (Read aracının 256KB limitine yakın) aşıyorsa, do
 
 5. Hafıza Protokolü
 
-00_Context/hafiza.md, oturumlar arası devamlılığı sağlayan tek dosyadır. Güncellenmesi kullanıcı isteğine bağlı değildir, oturum sonu rutininin sabit bir parçasıdır.
+İki ayrı dosya, iki ayrı amaç:
+
+| Dosya | Amaç | Kim için |
+|---|---|---|
+| 00_Context/hafiza.md | Güncel durum — dönüşerek ilerler, eski özet üzerine yazılır, geçmiş girişi biriktirmez | Claude'un yeni oturumda kaldığı yeri bulması için |
+| 00_Context/gunce.md | Kalıcı tarihçe — asla üzerine yazılmaz, her oturum kendi maddeler halinde girişini ekler | Kullanıcının geçmişi takip etmesi için |
+
+Her iki dosyanın da güncellenmesi kullanıcı isteğine bağlı değildir, oturum sonu rutininin sabit bir parçasıdır.
 
 İşleyiş:
 
 | Zaman | Aksiyon |
 |---|---|
-| Oturum başı | hafiza.md okunur, Son Oturum Özeti ve Açık Konular bağlama dahil edilir |
-| Oturum içi | Kullanıcı bir yaklaşımı düzeltir veya onaylarsa, Öğrenilen Kurallar bölümüne eklenir |
-| Oturum sonu | Son Oturum Özeti üzerine yazılır (2-3 cümle); Oturum Günlüğü'ne yeni satır eklenir (tarih + özet, en yeni üstte); tamamlanan konular Açık Konular'dan çıkarılır, yenileri eklenir |
-| Oturum sonu (git) | hafiza.md güncellemesiyle birlikte, o oturumda değişen tüm dosyalar git'e eklenir; commit atılır ve remote'a push edilir |
+| Oturum başı | Yalnızca hafiza.md okunur (Son Oturum Özeti ve Açık Konular bağlama dahil edilir). gunce.md oturum başında okunmaz |
+| Oturum içi | Kullanıcı bir yaklaşımı düzeltir veya onaylarsa, hafiza.md'nin Öğrenilen Kurallar bölümüne eklenir |
+| Oturum sonu (hafiza) | hafiza.md'deki Son Oturum Özeti üzerine yazılır (2-3 cümle, güncel duruma göre dönüşür); tamamlanan konular Açık Konular'dan çıkarılır, yenileri eklenir |
+| Oturum sonu (günce) | gunce.md'nin en üstüne yeni bir giriş eklenir: `## YYYY-AA-GG — Genel Başlık` altında maddeler halinde, o oturumda yapılan işlere/tartışmalara atıflarla (dosya linkleri dahil) daha detaylı bir kayıt. Önceki girişler asla silinmez veya değiştirilmez |
+| Oturum sonu (git) | hafiza.md ve gunce.md güncellemesiyle birlikte, o oturumda değişen tüm dosyalar git'e eklenir; commit atılır ve remote'a push edilir |
 
-Oturum sonu tetikleyicisi: kullanıcı oturumu bitirdiğini belirttiğinde veya konuşma doğal olarak kapandığında. Bu dosyaya yalnızca oturum özeti, açık işler ve öğrenilen kurallar yazılır; onaysız kaynak veya terim bilgisi buraya kalıcı olarak işlenmez.
+Oturum sonu tetikleyicisi: kullanıcı oturumu bitirdiğini belirttiğinde veya konuşma doğal olarak kapandığında. Bu iki dosyaya yalnızca oturum özeti, açık işler, öğrenilen kurallar ve yapılan işlerin kaydı yazılır; onaysız kaynak veya terim bilgisi buraya kalıcı olarak işlenmez.
 
 Git commit/push adımı istisnasız her oturum sonunda çalışır, kullanıcı ayrıca istemese de. Oturum içinde yapılan tek tek değişiklikler için ayrı ayrı commit atılmaz; tüm değişiklikler birikir ve oturum kapanışında tek seferde commitlenip pushlanır. Böylece git geçmişi oturum bazlı bir günce gibi okunabilir kalır. Push başarısız olursa (kimlik doğrulama, remote, conflict vb.) sessizce vazgeçilmez, hata kullanıcıya bildirilir.
 
