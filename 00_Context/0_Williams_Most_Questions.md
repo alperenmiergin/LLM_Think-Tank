@@ -3,6 +3,7 @@
 **Yazar:** Dan Williams
 **Kaynak:** Conspicuous Cognition (Substack), 26 Ağustos 2026
 **Tür:** Teknik Blog
+**Kapsam:** AI risk/tartışma söyleminin teknik-olmayan (felsefi, ekonomik, sosyolojik, kurumsal) boyutları; büyük teknolojik dönüşümlerde dar teknik uzmanlığın yetersizliği
 **URL:** https://www.conspicuouscognition.com/p/most-questions-about-ai-arent-about
 **Kaynakça kaydı:** [[00_Context/kaynaklar.md]]
 

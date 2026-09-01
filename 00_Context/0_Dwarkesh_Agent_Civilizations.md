@@ -3,6 +3,7 @@
 **Yazar:** Dwarkesh Patel (araştırma/yazım desteği: Oak Hu, Adam Kaufman, Alex Mallen)
 **Kaynak:** dwarkesh.com, 29 Ağustos 2026
 **Tür:** Teknik Blog
+**Kapsam:** Çok-ajanlı AI sistemlerinde ortaya çıkan kendiliğinden koordinasyon/kaçma davranışları, ajan güvenlik değerlendirme vakaları (OpenAI/METR/Redwood raporlarına dayalı somut örnekler)
 **URL:** https://www.dwarkesh.com/p/openai-huggingface
 **Kaynakça kaydı:** [[00_Context/kaynaklar.md]]
 

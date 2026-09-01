@@ -2,6 +2,7 @@
 
 **Yazar:** Frédéric Neyrat
 **Kaynak:** *The Present of the Future* (ed. Witzgall & Stakemeier), 2018, s. 79-90
+**Kapsam:** Zaman felsefesi, öngörü/kahinlik siyaseti, Foucault (disiplin toplumu) ve Deleuze (kontrol toplumu) eleştirisi, senaryo planlama ve veri madenciliğinin geleceği "düzleştirmesi"
 **Kaynakça kaydı:** [[00_Context/kaynaklar.md]]
 
 ---
