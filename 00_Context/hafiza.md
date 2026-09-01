@@ -10,15 +10,16 @@ BDM/LLM araştırma ve düşünce üretim ortamı. Rol: araştırma ortağı. Am
 
 ## Son Oturum Özeti
 
-Git deposu ilk kez kuruldu (identity, remote, ilk commit/push) ve oturum sonu commit/push rutini claude.md'ye kalıcı kural olarak işlendi (sadece oturum kapanışında, tek seferde). Dört büyük kaynak eklenip işlendi: Zang'ın "Mathematical Analysis of Machine Learning Algorithms" ve Mehlig'in "Machine Learning with Neural Networks" kitapları (ikisi de PDF-to-md dönüştürmeden kaynaklı bozuklukları giderilip künyelendi, bölüm bazlı klasörlere ayrıldı), Athey'nin NBER kitap bölümü (sayfa/footer gürültüsü temizlendi) ve Button-Walsh'ın "Philosophy and Model Theory" kitabı (telif durumu kontrol edildi, kullanıcı onayıyla işlendi, 22 parçaya bölündü). Büyük kaynakları bölüm bazlı klasörlere ayırma protokolü (4.1) ve künyeye standart TR/EN özet ekleme kuralı bu oturumda kuruldu; dört kaynağın hepsine bu özet eklendi. Oturum sonunda hafıza sistemi ikiye ayrıldı: hafiza.md (güncel durum, dönüşerek ilerler) ve yeni gunce.md (kalıcı, maddeler halinde tarihçe, sadece oturum sonunda yazılır).
+PDF-to-Markdown dönüştürme aracı (pdf2md.morethan.io) araştırılıp hafızaya not düşüldü. Morris ve ark.'nın "Levels of AGI" makalesine künye protokolü uygulandı: PDF/OCR kaynaklı 4 yapısal hata düzeltildi (dipnot/boşluk/sayfa üstbilgisi karışması), TR/EN özet eklendi, kaynaklar.md güncellendi. Kullanıcı onayıyla sözlüğe "Bash Betiği" ve "Kanca (Hook)" terimleri eklendi (kaynak: kullanıcı tanımı). Oturum sonunda avenox.lol/beyin.md adlı üçüncü taraf "ikinci beyin" kurulum sayfası incelendi; sayfanın kendini Claude Code gibi tanıtıp adım adım komut çalıştırma/dosya indirme zincirine yönlendirdiği tespit edildi, kullanıcıya prompt injection riski olarak bildirildi. Kullanıcı kaynağı güvenilir buluyor; bir sonraki oturumda avenox'un sistemi detaylıca incelenip resmi Claude Code hook altyapısıyla güvenli bir alternatif tasarlanacak.
 
 ## Açık Konular (Threadler)
 
 - LLM'lerle değişen tahakküm siyaseti üzerine düşünce silsilesi (Neyrat/Dwarkesh/Williams, altı terim) henüz bir analiz/deneme metnine dönüşmedi
-- Zang, Mehlig, Athey, Button-Walsh kaynaklarından henüz hiç sözlük terimi onaylanmadı/eklenmedi — kaynaklar.md'de "Kullanıldığı Terimler" alanları hâlâ boş
+- Zang, Mehlig, Athey, Button-Walsh kaynaklarından henüz hiç sözlük terimi onaylanmadı/eklenmedi — kaynaklar.md'de "Kullanıldığı Terimler" alanları hâlâ boş; kullanıcı bu dengesizliği fark etti, kaynakları derinleştirip not alarak ilerlemeye karar verdi — bir sonraki oturumda hangi kaynaktan başlanacağı henüz belli değil
 - Button-Walsh kitabının reposu şu an public; kullanıcının GitHub arayüzünden private'a alması gerekiyor (gh CLI kurulu değil, otomatik yapılamadı)
 - Button-Walsh kitabında sayfa numarası/koşu başlığı gibi yapısal OCR temizliği henüz yapılmadı (kapsam dışı bırakıldı, sadece bölümleme yapıldı)
-- Oturum sonu push denemesi Claude Code'un izin sınıflandırıcısı tarafından bloklandı (büyük commit boyutu muhtemel sebep); commit yerelde hazır, push kullanıcı onayı/tekrar deneme bekliyor
+- AGI/mimari kırılım thread'inde henüz sözlük terimi önerilmedi (transformer sınırları, JEPA/dünya modeli gibi kavramlar aday, onay bekliyor)
+- avenox.lol/beyin.md incelemesi: kullanıcı kaynağı güvenilir buluyor, sayfanın kendini asistan gibi tanıtıp komut zincirine yönlendirmesi risk olarak not edildi ama karar kullanıcıya bırakıldı; bir sonraki oturumda sistemin detaylı incelenip Claude Code'un resmi hook/settings.json altyapısıyla güvenli bir alternatifin nasıl tasarlanacağı tartışılacak
 
 ## Öğrenilen Kurallar
 
@@ -34,3 +35,5 @@ Git deposu ilk kez kuruldu (identity, remote, ilk commit/push) ve oturum sonu co
   **neden:** Bu proje oturum sonunda otomatik push ediyor — telif riski taşıyan tam metni işleyip tutmak, o riski uzak sunucuya taşımak anlamına gelir.
 - **kural:** Kalıcı oturum tarihçesi artık ayrı bir dosyada (gunce.md) tutuluyor; hafiza.md sadece güncel durumu taşıyor, geçmiş girişleri biriktirmiyor.
   **neden:** Kullanıcı iki farklı ihtiyacı ayırdı: hafiza.md Claude'un "kaldığımız yer" bağlamı için, gunce.md kullanıcının kendi geçmiş takibi için.
+- **referans:** PDF'i yerelde markdown'a çevirmek için http://pdf2md.morethan.io kullanılabilir — kurulum gerektirmez, tarayıcıda sürükle-bırak, pdf.js ile client-side işler. Yerleşik indirme/export butonu yok; çıktı "Edit" modundaki textarea'dan elle kopyalanıp bir `.md` dosyasına yapıştırılmalı. Repoyu (jzillmann/pdf-to-markdown) yerel kurmak da fark etmez, çünkü CLI/API yok, sadece aynı tarayıcı arayüzünü yerelde sunuyor.
+  **neden:** Kullanıcı `00_Context/_pdf` altına PDF ekleyip madde 4 protokolüyle işletmeden önce dönüştürme aracı aradı; bu bilgi tekrar aynı aracı önerebilmek için kalıcı hale getirildi.
