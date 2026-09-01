@@ -87,10 +87,11 @@ Kullanıcı 00_Context altına bir kaynak dosyası (makale, blog yazısı, trans
 | Oturum başı | hafiza.md okunur, Son Oturum Özeti ve Açık Konular bağlama dahil edilir |
 | Oturum içi | Kullanıcı bir yaklaşımı düzeltir veya onaylarsa, Öğrenilen Kurallar bölümüne eklenir |
 | Oturum sonu | Son Oturum Özeti üzerine yazılır (2-3 cümle); Oturum Günlüğü'ne yeni satır eklenir (tarih + özet, en yeni üstte); tamamlanan konular Açık Konular'dan çıkarılır, yenileri eklenir |
+| Oturum sonu (git) | hafiza.md güncellemesiyle birlikte, o oturumda değişen tüm dosyalar git'e eklenir; commit atılır ve remote'a push edilir |
 
 Oturum sonu tetikleyicisi: kullanıcı oturumu bitirdiğini belirttiğinde veya konuşma doğal olarak kapandığında. Bu dosyaya yalnızca oturum özeti, açık işler ve öğrenilen kurallar yazılır; onaysız kaynak veya terim bilgisi buraya kalıcı olarak işlenmez.
 
-Oturum sonu rutininin bir parçası olarak, hafiza.md güncellemesiyle birlikte otomatik bir git commit oluşturulur ve push yapılır. (o oturumda değişen tüm dosyalar dahil).
+Git commit/push adımı istisnasız her oturum sonunda çalışır, kullanıcı ayrıca istemese de. Push başarısız olursa (kimlik doğrulama, remote, conflict vb.) sessizce vazgeçilmez, hata kullanıcıya bildirilir.
 
 6. Format Kuralları
 
