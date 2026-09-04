@@ -4,6 +4,17 @@ Kalıcı oturum tarihçesi. Yalnızca oturum sonunda güncellenir (oturum başı
 
 ---
 
+## 2026-09-04 — GPT-6 Astra / Fable 5.1 Kaynaklandırma ve AGI Değerlendirme Taslağı
+
+- OpenAI'ın 3 Eylül 2026'da duyurduğu GPT-6 Astra modeli araştırıldı (AGI iddiası, Greg Brockman'ın açıklamaları); 5 aday kaynak sunuldu, kullanıcı yalnızca openai.com resmi duyurusu ve developers.openai.com API dokümantasyonunu onayladı, geri kalan 3 haber kaynağı (The Information, Axios, VentureBeat) reddedilenler.md'ye işlendi
+- Kullanıcının "Astra gerçekten AGI seviyesinde bir model olabilir mi?" sorusuna, sözlükteki Morris ve ark. AGI çerçevesi (performans x genellik matrisi) üzerinden spekülasyon/doğrulanmış bilgi ayrımı yapılarak yanıt verildi
+- `01_Work-Table/Astra_AGI_Degerlendirmesi.md` taslağı oluşturuldu: onaylı kaynaklardan doğrulanmış veri (ARC-AGI-3 %99.9, FrontierMath %98 vb.) ile Morris çerçevesine göre performans/genellik/ekolojik geçerlilik/otonomi eksenlerinde ayrı ayrı, açıkça "spekülatif" işaretli bir değerlendirme yapıldı — sonuç: mevcut verilerle kesin seviye ataması yapılamıyor
+- Anthropic'in 1 Eylül 2026'da duyurduğu Fable 5.1 ile Astra karşılaştırması araştırıldı; 6 aday kaynaktan kullanıcı anthropic.com resmi duyurusu, artificialanalysis.ai ve llm-stats.com karşılaştırma sayfalarını onayladı, TechCrunch/Bloomberg/NextBigFuture (sonuncusu "sızdırılmış" veri gerekçesiyle ayrıca şüpheli işaretlendi) reddedildi
+- Taslağa "Fable 5.1 ile Kıyas" bölümü eklendi: benchmark tablosu (Intelligence Index, FrontierMath, AutomationBench, Terminal-Bench Science, BenchCAD, Coding Agent Index, OSWorld 2.0, fiyatlandırma) + kapasite bazlı okuma + ayrı bir "Spekülatif Sentez" alt bölümü (Astra'nın dar-teknik derinlik, Fable 5.1'in genel-ajanlık genişlik ekseninde öne çıktığı yorumu; iki şirketin AGI anlatısını farklı konumlandırması)
+- Kullanıcı, dosyanın Türkçe yazılmasına rağmen Türkçe karakter (ı, ğ, ş, ö, ü, ç) kullanılmadığını fark etti; bu bir format kuralı ihlali değil, yanlış yorumdu (CLAUDE.md sadece â'yı yasaklıyor) — dosya tamamen yeniden yazıldı, hafiza.md'ye kural olarak eklendi
+- Kullanıcının "Fable/Astra gibi modellerin senden (Sonnet 5) farkı ne" ve "Opus/Sonnet/Fable segmentasyonu teknik olarak nasıl ayrışıyor" sorularına, ikinci aramada kullanıcının "kaynak tarama becerin düştü" geri bildirimi üzerine daha derin/spesifik kaynaklarla (System Card PDF önerisi dahil, kullanıcı bunu reddetti) yeniden aday liste sunuldu; kullanıcı platform.claude.com Models overview ve iki artificialanalysis.ai sayfasını onayladı, System Card PDF / Opus 5 platform docs / OpenRouter reddedildi
+- Model segmentasyonu, Anthropic'in Models overview sayfası ve Artificial Analysis Intelligence Index skorlarına (Fable 5.1: 66, Opus 5: 63.0, Sonnet 5: 55) dayanarak açıklandı
+
 ## 2026-09-01 — PDF-to-Markdown Araştırması, AGI Künyesi ve avenox.lol Güvenlik Uyarısı
 
 - Yerel PDF-to-Markdown dönüştürme seçenekleri araştırıldı: jzillmann/pdf-to-markdown reposu (kurulum, sınırlar, indirme yöntemi) ve kurulumsuz online sürümü pdf2md.morethan.io incelendi; ikisinin de yerleşik indirme butonu olmadığı, client-side (pdf.js) çalıştığı ve repo kurmanın CLI/API eksikliği nedeniyle fark yaratmadığı tespit edildi — hafiza.md'ye kalıcı referans olarak eklendi

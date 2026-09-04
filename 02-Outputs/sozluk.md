@@ -16,14 +16,6 @@ Kaynak: Frédéric Neyrat, "Occupying the Future" — [[00_Context/0_Neyrat_Clai
 İlişkili Kavramlar: Kahinlik Toplumu, Düz Kronoloji
 Son Güncelleme: 2026-08-31
 
-## Bash Betiği (Bash Script)
-
-Unix/Linux kabuğu (Bash) için yazılmış, bir dizi komutu sırayla veya koşullu olarak çalıştıran metin dosyası; bir kanca (hook) tarafından tetiklendiğinde veya manuel çalıştırıldığında otomasyon görevlerini yürütür.
-
-Kaynak: kullanıcı tanımı
-İlişkili Kavramlar: Kanca (Hook)
-Son Güncelleme: 2026-09-01
-
 ## Dividual
 
 Gilles Deleuze'ün kontrol toplumları kavramı içinde tanımladığı, bireyin (individual) bütünlüğünden ayrılıp her bir eylemine (satın alma, hareket, bağlantı) karşılık gelen dijital veri parçalarına bölünmüş hali. Neyrat metninde kahinlik toplumlarının ürettiği "istatistiksel bedenler" tartışmasının merkezinde yer alır.
@@ -47,14 +39,6 @@ Bireylerin niyet ile eylemleri arasındaki boşluğu veri madenciliği ve senary
 Kaynak: Frédéric Neyrat, "Occupying the Future" — [[00_Context/0_Neyrat_Clairvoyance.md]]
 İlişkili Kavramlar: Düz Kronoloji, Akronia, Dividual
 Son Güncelleme: 2026-08-31
-
-## Kanca (Hook)
-
-Bir sistemde belirli bir olay (oturum başlangıcı/bitişi, bir aracın çalıştırılmasından önce/sonra vb.) gerçekleştiğinde, dil modelinin müdahalesi olmadan otomatik tetiklenen, önceden tanımlanmış komut veya betik.
-
-Kaynak: kullanıcı tanımı
-İlişkili Kavramlar: Bash Betiği
-Son Güncelleme: 2026-09-01
 
 ## Yakın-Ayrıştırılabilirlik (Near-Decomposability)
 
