@@ -105,28 +105,16 @@ Tek md dosyası ~200KB'ı (Read aracının 256KB limitine yakın) aşıyorsa, do
 
 5. Hafıza Protokolü
 
-İki ayrı dosya, iki ayrı amaç:
-
-| Dosya | Amaç | Kim için |
-|---|---|---|
-| 00_Context/hafiza.md | Güncel durum — dönüşerek ilerler, eski özet üzerine yazılır, geçmiş girişi biriktirmez | Claude'un yeni oturumda kaldığı yeri bulması için |
-| 00_Context/gunce.md | Kalıcı tarihçe — asla üzerine yazılmaz, her oturum kendi maddeler halinde girişini ekler | Kullanıcının geçmişi takip etmesi için |
-
-Her iki dosyanın da güncellenmesi kullanıcı isteğine bağlı değildir, oturum sonu rutininin sabit bir parçasıdır.
+İki dosya: `hafiza.md` (güncel durum — üzerine yazılır, geçmiş biriktirmez, Claude'un kaldığı yeri bulması için) ve `gunce.md` (kalıcı tarihçe — asla silinmez, her oturum kendi girişini üste ekler, kullanıcı takibi için). Güncelleme kullanıcı isteğine bağlı değil, oturum sonu rutininin sabit parçası. `gunce.md` oturum başında okunmaz.
 
 İşleyiş:
+- **Oturum başı:** yalnızca hafiza.md okunur (Son Oturum Özeti + Açık Konular).
+- **Oturum içi:** kullanıcı bir yaklaşımı düzeltir/onaylarsa → hafiza.md'nin Öğrenilen Kurallar'ına eklenir.
+- **Oturum sonu — hafiza:** Son Oturum Özeti üzerine yazılır (2-3 cümle); Açık Konular güncellenir (biteni çıkar, yeniyi ekle).
+- **Oturum sonu — günce:** en üste `## YYYY-AA-GG — Başlık` girişi, kısa maddeler halinde (dosya linkleriyle). Önceki girişlere dokunulmaz.
+- **Oturum sonu — git:** `.claude/hooks/session-end.ps1` kuruluysa add/commit/push otomatik çalışır. Kurulu değilse: değişen dosyalar eklenir, tek commit atılır, push denenir — istisnasız, kullanıcı istemese de, tek tek değişiklik için ayrı commit atılmaz. Push başarısız olursa sessizce vazgeçilmez, hata bildirilir.
 
-| Zaman | Aksiyon |
-|---|---|
-| Oturum başı | Yalnızca hafiza.md okunur (Son Oturum Özeti ve Açık Konular bağlama dahil edilir). gunce.md oturum başında okunmaz |
-| Oturum içi | Kullanıcı bir yaklaşımı düzeltir veya onaylarsa, hafiza.md'nin Öğrenilen Kurallar bölümüne eklenir |
-| Oturum sonu (hafiza) | hafiza.md'deki Son Oturum Özeti üzerine yazılır (2-3 cümle, güncel duruma göre dönüşür); tamamlanan konular Açık Konular'dan çıkarılır, yenileri eklenir |
-| Oturum sonu (günce) | gunce.md'nin en üstüne yeni bir giriş eklenir: `## YYYY-AA-GG — Genel Başlık` altında maddeler halinde, o oturumda yapılan işlere/tartışmalara atıflarla (dosya linkleri dahil) daha detaylı bir kayıt. Önceki girişler asla silinmez veya değiştirilmez |
-| Oturum sonu (git) | hafiza.md ve gunce.md güncellemesiyle birlikte, o oturumda değişen tüm dosyalar git'e eklenir; commit atılır ve remote'a push edilir |
-
-Oturum sonu tetikleyicisi: kullanıcı oturumu bitirdiğini belirttiğinde veya konuşma doğal olarak kapandığında. Bu iki dosyaya yalnızca oturum özeti, açık işler, öğrenilen kurallar ve yapılan işlerin kaydı yazılır; onaysız kaynak veya terim bilgisi buraya kalıcı olarak işlenmez.
-
-Git commit/push adımı istisnasız her oturum sonunda çalışır, kullanıcı ayrıca istemese de. Oturum içinde yapılan tek tek değişiklikler için ayrı ayrı commit atılmaz; tüm değişiklikler birikir ve oturum kapanışında tek seferde commitlenip pushlanır. Böylece git geçmişi oturum bazlı bir günce gibi okunabilir kalır. Push başarısız olursa (kimlik doğrulama, remote, conflict vb.) sessizce vazgeçilmez, hata kullanıcıya bildirilir.
+Tetikleyici: kullanıcı oturumu bitirdiğini belirttiğinde veya konuşma doğal kapandığında. Bu iki dosyaya yalnızca özet/açık iş/kural/kayıt yazılır — onaysız kaynak veya terim buraya kalıcı işlenmez.
 
 6. Format Kuralları
 
