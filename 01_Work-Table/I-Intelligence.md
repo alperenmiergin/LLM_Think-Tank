@@ -1,0 +1,3 @@
+Zeka kavramının muğlaklığının antromorfizasyonu katmanlaştırdığını düşünüyorum.
+"Ajan" dendiğinde sanki bir "self-determined" varlık gibi anlaşılıyor ama bir ajanı diğerinden ayıran nedir ki? Bir ajan ve iki alt ajan çalışan bir sistemi düşünelim. Bir yönetici ve iki işçi ile bazı ortak özellikleri var. Mesela iş bölümü yapılıyor, işçiler birbirinden bağımsız olarak bu işleri tamamlıyor ve yöneticiye teslim ediyorlar. Yönetici bunların kontrolünden ve koordinasyonundan sorumlu. İnsansılaştıran bu düşünce buraya kadar kritik bir problem taşımıyor. Ama LLM modelleri kendi içerisinde "emergent" durumlar barındırıyor. 
+Analojiyi gerçekten koparan şey farklılıklarda değil benzerlik hatta aynılıklarda ortaya çıkıyor. 
