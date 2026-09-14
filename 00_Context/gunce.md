@@ -4,6 +4,17 @@ Kalıcı oturum tarihçesi. Yalnızca oturum sonunda güncellenir (oturum başı
 
 ---
 
+## 2026-09-14 — Kadercan İlk Paketi İşlendi, Sözlük İkiye Ayrıldı (Kavramsal / Teknik)
+
+- Burak Kadercan'dan gelen ilk gönüllü paket incelendi: `00_Context/1_Kadercan-Geride-Kalanlar-İçin-YZ/260914_Paket-1/` altında 3 PDF — "Yapay Zeka, Yükseköğretim ve 'Üç Köprü': Bir Deneme Yazısı" (21 sayfa, Zenodo/CC BY 4.0), "Geride Kalanlar İçin Yapay Zeka" sunumu (142 sayfa) ve aynı sunumun yazılı/eşlik eden metni (140 sayfa) — ve paketle birlikte gelen kapak e-postası (gelecek paketlerde meta-doküman, ~200 sayfalık çalışma kitabı ve ayrı bir BDM/YZ sözlüğü sözü veriyor)
+- Üç dosyanın da madde 4 protokolüyle ayrı ayrı işlenmesine karar verildi (kullanıcı onayı); PDF'ler `_pdf/` alt klasörüne taşındı, her biri için künye+TR/EN özet içeren `0_` önekli md dosyası oluşturuldu: `0_Kadercan_Uc_Kopru_Deneme.md`, `0_Kadercan_GZiYZ_Slaytlar.md`, `0_Kadercan_GZiYZ_Eslik_Eden_Metin.md`
+- İşlem sırasında PDF'lerin metin katmanında yapısal bir sorun tespit edildi: font kodlaması yüzünden Türkçe'ye özgü ğ/ş harfleri pdftotext çıktısından tamamen düşüyor, ı/İ düz i/I'ye karışıyor (hex inceleme ile doğrulandı — â/ü/ö/ç gibi Latin-1'de de bulunan harfler sorunsuz, sadece Türkçe'ye özgü olanlar kayboluyor). Güvenilir düzeltme ancak 300 sayfanın görsel/OCR transkripsiyonuyla mümkün; kullanıcı bu büyük işi ertelemeyi tercih etti, üç dosya için de sadece künye+özet üretildi, gövde metni işlenmedi (md dosyalarında gerekçe notu var)
+- kaynaklar.md'ye üç yeni kayıt eklendi (üçü de Kadercan/Geride Kalanlar İçin Yapay Zeka Projesi)
+- Paketten 24 aday terim çıkarılıp kullanıcıya önerildi; kullanıcı onayıyla ikiye ayrıldı: 19 kavramsal terim (Üç Köprü, Birinci/İkinci/Üçüncü Köprü, İki Dillilik, Beklenti Kalibrasyonu, Oksijen Maskesi Prensibi, Zeka Yanılsaması, Hollywood Yanılsaması, YZ Gazı, Otorite Tuzağı, Yapay Çalışma Masası, Beyaz Tahta Prensibi, Kadercan Testi, Kokpitte Kalmak, YZ Kurnazlığı, YZ Tembelliği, Kuvvet Çarpanı, YZ Öğrenme Seraları) 02-Outputs/sozluk.md'ye eklendi; 5 genel teknik terim (Antropomorfizasyon, Token, Sayısal Temsil, Halüsinasyon, Üretken Yapay Zeka) 02-Outputs/teknik_sozluk.md'ye eklendi
+- Bu ayrım netleştirilirken teknik_sozluk.md dosyası `00_Context/`'ten `02-Outputs/`'a taşındı (artık nihai çıktı sayılıyor) ve kapsamı "proje iş akışı terimleri"nden "proje iş akışı + BDM/YZ standart teknik terimleri"ne genişletildi; CLAUDE.md'nin madde 3 başına iki sözlük dosyasının kapsamını ayıran bir tablo eklendi
+- Kullanıcı CLAUDE.md'yi oturum sırasında elle düzenleyip bu tabloyu değiştirdi: teknik_sozluk.md başlangıçta kaynak onay protokolünden (madde 2) muaf tutulmuştu, kullanıcı bunu da madde 2'ye tabi kıldı — teknik_sozluk.md'nin kendi açıklama metni de bu değişiklikle tutarlı hale getirildi
+- Çözülemeyen teknik sorun: Paket-1 kök klasöründeki 3 orijinal PDF, `_pdf/`'e kopyalandıktan sonra Windows'ta kilitli kaldığı için silinemedi (zararsız kopya fazlalığı, `_pdf/` zaten `.gitignore` ile git'e girmiyor)
+
 ## 2026-09-04 — GPT-6 Astra / Fable 5.1 Kaynaklandırma ve AGI Değerlendirme Taslağı
 
 - OpenAI'ın 3 Eylül 2026'da duyurduğu GPT-6 Astra modeli araştırıldı (AGI iddiası, Greg Brockman'ın açıklamaları); 5 aday kaynak sunuldu, kullanıcı yalnızca openai.com resmi duyurusu ve developers.openai.com API dokümantasyonunu onayladı, geri kalan 3 haber kaynağı (The Information, Axios, VentureBeat) reddedilenler.md'ye işlendi

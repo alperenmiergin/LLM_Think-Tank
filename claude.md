@@ -11,7 +11,7 @@ Rol: Araştırma ortağı. Fikir üretimini kolaylaştır, iddiaları kaynakla d
 | 00_Context | Onaylanmış kaynaklar ve arka plan notları: kaynaklar.md, reddedilenler.md, hafiza.md, gunce.md, kaynak dosyaları (`0_` önekiyle) |
 | 00_Context/_pdf (ve her alt klasördeki `_pdf`) | Karşılık gelen `0_` md dosyasının orijinal PDF kaynağı. Salt referans: içindeki dosyalarda hiçbir değişiklik yapılmaz, sadece md dosyasındaki eksik/hatalı referansları tespit etmek için başvuru kaynağı olarak okunur. `.gitignore` ile git'e hiç eklenmez (ham PDF asla push edilmez) |
 | 01_Work-Table | Onay bekleyen veya henüz tamamlanmamış analiz taslakları. Bir analiz üretilirken önce burada tutulur; kullanıcı onaylayıp kesinleştirince 02-Outputs'a taşınır. Terim önerileri ve kaynak adayları burada değil, ilgili protokolün (2. ve 3. madde) kendi akışında tutulur |
-| 02-Outputs | Nihai çıktılar: sozluk.md ve tamamlanmış/onaylanmış analizler |
+| 02-Outputs | Nihai çıktılar: sozluk.md (kuramsal/kavramsal BDM araştırma terimleri), teknik_sozluk.md (BDM/YZ alanının ve proje iş akışının standart teknik terimleri) ve tamamlanmış/onaylanmış analizler |
 
 2. Kaynak Onay Protokolü
 
@@ -30,6 +30,15 @@ Web araması sonucu bulunan hiçbir kaynak, kullanıcı onayı olmadan konuşma 
 Kural: Arama sonucu bulunan bilgi, onay öncesinde sadece "aday kaynak" statüsündedir, kesin bilgi olarak sunulmaz.
 
 3. Sözlük (Glossary) Yönetim Protokolü
+
+İki ayrı sözlük dosyası, iki ayrı kapsam:
+
+| Dosya | Kapsam | Kaynak Onayı |
+|---|---|---|
+| 02-Outputs/sozluk.md | Bir kaynağın kendi özgün araştırma iddiası veya kavramsal çerçevesi olan terimler (bir yazarın kendi adlandırdığı model, ilke, kavram) | Madde 2 protokolüne tabi |
+| 02-Outputs/teknik_sozluk.md | BDM/YZ alanının yerleşik, standart teknik/mekanik terimleri (token, embedding vb.) ve proje iş akışında geçen genel teknik kavramlar (git, araçlar, dosya sistemi vb.) | Madde 2 protokolüne tabi |
+
+Aşağıdaki 3.1-3.4 maddeleri her iki dosya için de geçerlidir; bir terimin hangi dosyaya gideceğine karar verirken yukarıdaki ayrım esas alınır.
 
 3.1 Tetikleyiciler
 
